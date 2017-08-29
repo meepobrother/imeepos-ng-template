@@ -20,7 +20,7 @@ npm install
 
 ```ts
 // 1: 更改package.json中的name为要发布的名字
-npm run build
+npm run publishPackage
 ```
 
 ### 使用发布的包
