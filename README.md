@@ -33,3 +33,10 @@ npm install --save 包名
 ```ts
 import { 模块 } from {包名}
 ```
+
+```ts
+"rollup": "^0.43.0",
+"rollup-plugin-commonjs": "^8.0.2",
+"rollup-plugin-includepaths": "0.2.2",
+"rollup-plugin-node-resolve": "^3.0.0"
+```

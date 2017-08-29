@@ -7,7 +7,7 @@
     "scripts": {
         "ngc": "ngc",
         "build": "rm -rf aot dist && npm run ngc && node scripts/copy-package.js",
-        "publishPackage": "npm run build && npm publish"
+        "publishPackage": "npm run build && cd ./dist/ && npm publish"
     },
     "repository": {
         "type": "git",
@@ -26,9 +26,19 @@
         "@angular/compiler": "5.0.0-beta.5",
         "@angular/compiler-cli": "5.0.0-beta.5",
         "@angular/core": "5.0.0-beta.5",
+        "@angular/forms": "5.0.0-beta.5",
+        "@angular/http": "5.0.0-beta.5",
+        "@angular/router": "5.0.0-beta.5",
         "@angular/platform-browser": "5.0.0-beta.5",
         "@types/node": "^6.0.84",
         "rxjs": "^5.0.1",
-        "typescript": "^2.3.4"
+        "typescript": "^2.3.4",
+        "rollup": "^0.49.2",
+        "rollup-plugin-commonjs": "^8.2.0",
+        "rollup-plugin-includepaths": "^0.2.2",
+        "rollup-plugin-node-resolve": "^3.0.0"
+    },
+    "dependencies": {
+
     }
 }
