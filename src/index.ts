@@ -1,6 +1,3 @@
-import { NgModule } from '@angular/core';
-
-@NgModule({})
-export class ExampleModule{
-
-}
+export * from './my-module.module';
+export * from './components/my-component';
+export * from './providers/my-provider';

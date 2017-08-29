@@ -6,7 +6,7 @@
     "typings": "./dist/index.d.ts",
     "scripts": {
         "ngc": "ngc",
-        "build": "rm -rf aot dist && npm run ngc",
+        "build": "rm -rf aot dist && npm run ngc && node scripts/copy-package.js",
         "publishPackage": "npm run build && npm publish"
     },
     "repository": {

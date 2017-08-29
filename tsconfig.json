@@ -19,10 +19,9 @@
         "scripts"
     ],
     "files": [
-        "src/index.ts"
+        "./src/index.ts"
     ],
     "angularCompilerOptions": {
-        "genDir": "aot",
-        "skipMetadataEmit": true
+        "genDir": "aot"
     }
 }
