@@ -1,0 +1,34 @@
+{
+    "name": "imeepos-ng-template",
+    "version": "1.0.0",
+    "description": "A template for creating reusable module for Angular 2 and Ionic 2",
+    "main": "./dist/index.js",
+    "typings": "./dist/index.d.ts",
+    "scripts": {
+        "ngc": "ngc",
+        "build": "rm -rf aot dist && npm run ngc",
+        "publishPackage": "npm run build && npm publish"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/driftyco/ionic-module-template.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/driftyco/ionic-module-template/issues"
+    },
+    "homepage": "https://github.com/driftyco/ionic-module-template#readme",
+    "devDependencies": {
+        "@angular/cli": "^1.3.2",
+        "@angular/common": "5.0.0-beta.5",
+        "@angular/compiler": "5.0.0-beta.5",
+        "@angular/compiler-cli": "5.0.0-beta.5",
+        "@angular/core": "5.0.0-beta.5",
+        "@angular/platform-browser": "5.0.0-beta.5",
+        "@types/node": "^6.0.84",
+        "rxjs": "^5.0.1",
+        "typescript": "^2.3.4"
+    }
+}
