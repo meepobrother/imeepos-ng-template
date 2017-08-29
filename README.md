@@ -15,3 +15,21 @@ yarn
 // 或者
 npm install
 ```
+
+### 发布包到npm
+
+```ts
+// 1: 更改package.json中的name为要发布的名字
+npm run build
+```
+
+### 使用发布的包
+
+```ts
+npm install --save 包名
+```
+
+
+```ts
+import { 模块 } from {包名}
+```
