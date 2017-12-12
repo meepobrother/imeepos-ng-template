@@ -1,13 +1,13 @@
 {
     "name": "imeepos-runnerpro",
-    "version": "1.0.1",
+    "version": "1.0.25",
     "description": "我的ng包描述",
-    "main": "./dist/index.js",
-    "typings": "./dist/index.d.ts",
+    "main": "./bundles/meepo.umd.js",
+    "module": "./esm5/meepo.js",
+    "es2015": "./esm2015/meepo.js",
+    "typings": "./meepo.d.ts",
     "scripts": {
-        "ngc": "ngc",
-        "build": "rm -rf aot dist && npm run ngc && node scripts/copy-package.js",
-        "p": "npm run build && cd ./dist/ && npm publish"
+        "build": "bash ./build.sh"
     },
     "repository": {
         "type": "git",
@@ -19,26 +19,26 @@
     "bugs": {
         "url": "https://github.com/meepobrother/imeepos-ng-template/issues"
     },
-    "homepage": "https://github.com/meepobrother/imeepos-ng-template/blob/master/README.md",
+    "homepage": "https://github.com/meepobrother/imeepos-ng-template/README.md",
     "devDependencies": {
-        "@angular/cli": "^1.6.0",
-        "@angular/common": "^5.1.0",
         "@angular/compiler": "^5.1.0",
         "@angular/compiler-cli": "^5.1.0",
+        "less": "^2.7.3",
+        "node-sass": "^4.7.2",
+        "rollup": "^0.52.1",
+        "rollup-plugin-node-resolve": "^3.0.0",
+        "rollup-plugin-replace": "^2.0.0",
+        "rollup-plugin-sourcemaps": "^0.4.2",
+        "rollup-plugin-uglify": "^2.0.1",
+        "ts-node": "^4.0.1",
+        "typescript": "^2.6.2"
+    },
+    "dependencies": {
+        "@angular/common": "^5.1.0",
         "@angular/core": "^5.1.0",
         "@angular/forms": "^5.1.0",
-        "@angular/http": "^5.1.0",
         "@angular/platform-browser": "^5.1.0",
-        "@angular/router": "^5.1.0",
-        "@types/node": "^6.0.84",
-        "rollup": "^0.49.2",
-        "rollup-plugin-commonjs": "^8.2.0",
-        "rollup-plugin-includepaths": "^0.2.2",
-        "rollup-plugin-node-resolve": "^3.0.0",
-        "rxjs": "^5.5.0",
-        "typescript": "^2.3.4",
-        "zone.js": "^0.8.18",
-        "@angular-devkit/schematics": "0.0.40"
-    },
-    "dependencies": {}
+        "rxjs": "^5.5.5",
+        "zone.js": "0.8.4"
+    }
 }
