@@ -46,6 +46,10 @@ function transformStyleUrls(path) {
         })
         fs.writeFileSync(path, contentTemp);
     }
+}
+
+function transformHtmlUrls(path) {
+    let content = fs.readFileSync(path);
     if (htmlRegex.test(content)) {
         let contentTemp = content.toString().replace(htmlRegex, function(match, url) {
             let filePath = pathUtil.resolve(pathUtil.dirname(path), url);
@@ -146,6 +150,7 @@ function processLess() {
 function process() {
     // 把所有ts文件，引入的less文件的完整路径放到全局list里面, 并且对源文件进行占坑
     getTsFile(genPath, transformStyleUrls);
+    getTsFile(genPath, transformHtmlUrls);
     // 重置文件处理进度的计数器
     handledLessFileCount = 0;
     // 对list里面的每一个less文件进行翻译并触发css回写
