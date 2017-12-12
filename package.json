@@ -7,7 +7,8 @@
     "es2015": "./esm2015/meepo.js",
     "typings": "./meepo.d.ts",
     "scripts": {
-        "build": "bash ./build.sh"
+        "build": "bash ./build.sh",
+        "git": "git add . && git commit -m 'save to back' && git push origin master"
     },
     "repository": {
         "type": "git",

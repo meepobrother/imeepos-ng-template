@@ -19,6 +19,8 @@ npm install
 ### 发布包到npm
 
 ```ts
+// 删除mac自带后缀文件
+find ./ -name ".DS_Store" | xargs rm -rf
 // 1: 更改package.json中的name为要发布的名字
 npm run build && npm publish
 ```
