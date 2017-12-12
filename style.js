@@ -12,6 +12,8 @@ let handledLessFileCount = 0;
 
 let tsFileTester = /\.ts$/;
 let stylesRegex = /styleUrls *:(\s*\[[^\]]*?\])/g;
+let htmlRegex = /templateUrl *:(\s*?)/g;
+
 let stringRegex = /(['"])((?:[^\\]\\\1|.)*?)\1/g;
 let lessNumRegex = /style_(\d+)_less/g;
 
@@ -42,6 +44,10 @@ function transformStyleUrls(path) {
                 return result;
             })
         })
+        fs.writeFileSync(path, contentTemp);
+    }
+    if (htmlRegex.test(content)) {
+        let contentTemp = "template:" + content.toString();
         fs.writeFileSync(path, contentTemp);
     }
 }
