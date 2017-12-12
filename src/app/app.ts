@@ -1,6 +1,13 @@
-import { version } from './version';
-export { version } from './version';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { VersionnComponent } from './version';
 
-import { welcome } from './welcome';
-export { welcome } from './welcome';
-
+@NgModule({
+    declarations: [
+        VersionnComponent
+    ],
+    imports: [ CommonModule ],
+    exports: [],
+    providers: [],
+})
+export class AppModule {}

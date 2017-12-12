@@ -12,7 +12,7 @@ let handledLessFileCount = 0;
 
 let tsFileTester = /\.ts$/;
 let stylesRegex = /styleUrls *:(\s*\[[^\]]*?\])/g;
-let htmlRegex = /templateUrl *:(\s*?)/g;
+let htmlRegex = /templateUrl\s*:\s*\'(\S*?)\'/g;
 
 let stringRegex = /(['"])((?:[^\\]\\\1|.)*?)\1/g;
 let lessNumRegex = /style_(\d+)_less/g;
@@ -47,7 +47,11 @@ function transformStyleUrls(path) {
         fs.writeFileSync(path, contentTemp);
     }
     if (htmlRegex.test(content)) {
-        let contentTemp = "template:" + content.toString();
+        let contentTemp = content.toString().replace(htmlRegex, function(match, url) {
+            let filePath = pathUtil.resolve(pathUtil.dirname(path), url);
+            let content = fs.readFileSync(filePath);
+            return 'template: ' + "`" + content + "`";
+        });
         fs.writeFileSync(path, contentTemp);
     }
 }
@@ -87,19 +91,23 @@ function processLess() {
                         less.render(data.toString(), {
                             filename: lessFilePool[index]
                         }, function(e, output) {
-                            lessFilePool[index] = output.css.replace(/\\e/g, function(match, e) {
-                                // 对content中的类似'\e630'中的\e进行处理
-                                return '\\\\e';
-                            }).replace(/\\E/g, function(match, e) {
-                                // 对content中的类似'\E630'中的\E进行处理
-                                return '\\\\E';
-                            }).replace(/\\20/g, function(match, e) {
-                                // 对content中的类似'\20'中的\20进行处理
-                                return '\\\\20';
-                            }).replace(/`/g, function(match, e) {
-                                // 处理css中`符号
-                                return "'";
-                            });
+                            if (e) {
+                                console.log(e);
+                            } else {
+                                lessFilePool[index] = output.css.replace(/\\e/g, function(match, e) {
+                                    // 对content中的类似'\e630'中的\e进行处理
+                                    return '\\\\e';
+                                }).replace(/\\E/g, function(match, e) {
+                                    // 对content中的类似'\E630'中的\E进行处理
+                                    return '\\\\E';
+                                }).replace(/\\20/g, function(match, e) {
+                                    // 对content中的类似'\20'中的\20进行处理
+                                    return '\\\\20';
+                                }).replace(/`/g, function(match, e) {
+                                    // 处理css中`符号
+                                    return "'";
+                                });
+                            }
                             doneOne();
                         })
                     }
@@ -110,14 +118,22 @@ function processLess() {
                 scss.render({
                     file: lessFilePool[index]
                 }, function(e, output) {
-                    lessFilePool[index] = output.css;
+                    if (e) {
+                        console.log(e);
+                    } else {
+                        lessFilePool[index] = output.css;
+                    }
                     doneOne();
                 });
             }
 
             if (lessFilePool[index].indexOf('.css') != -1) {
                 fs.readFile(lessFilePool[index], function(e, data) {
-                    lessFilePool[index] = data.toString();
+                    if (e) {
+                        console.log(e)
+                    } else {
+                        lessFilePool[index] = data.toString();
+                    }
                     doneOne();
                 });
             }
