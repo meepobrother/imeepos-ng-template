@@ -1,5 +1,4 @@
 {
-    "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "./publish/src",
         "baseUrl": "./",
@@ -10,6 +9,12 @@
         "module": "es2015",
         "sourceMap": true,
         "target": "es2015",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "lib": [
+            "dom",
+            "es2015"
+        ],
         "types": [
             "node"
         ]
@@ -21,7 +26,12 @@
         "annotateForClosureCompiler": true,
         "strictMetadataEmit": true,
         "flatModuleOutFile": "index.js",
-        "flatModuleId": "imeepos-ng-template",
+        "flatModuleId": "meepo-core",
         "skipTemplateCodegen": true
-    }
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "scripts"
+    ]
 }
