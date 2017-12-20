@@ -9,7 +9,12 @@
     "scripts": {
         "build": "bash ./build.sh",
         "git": "git add . && git commit -m 'save to back' && git push origin master",
-        "test": "node index.js"
+        "test": "node index.js",
+        "demo": "ng serve",
+        "server": "pm2 start index.js --name meepo",
+        "reload": "pm2 restart all && pm2 logs meepo",
+        "delete": "pm2 delete all",
+        "logs": "pm2 logs meepo"
     },
     "repository": {
         "type": "git",
@@ -23,24 +28,34 @@
     },
     "homepage": "https://github.com/meepobrother/imeepos-ng-template/README.md",
     "devDependencies": {
+        "@angular/cli": "^1.6.1",
         "@angular/compiler": "^5.1.0",
         "@angular/compiler-cli": "^5.1.0",
-        "@types/node": "^8.0.58",
+        "@angular/platform-browser-dynamic": "^5.1.1",
+        "@types/node": "^8.5.1",
         "less": "^2.7.3",
         "node-sass": "^4.7.2",
+        "nodemon": "^1.13.3",
+        "pm2": "^2.9.1",
+        "redis": "^2.8.0",
         "rollup": "^0.52.1",
         "rollup-plugin-node-resolve": "^3.0.0",
         "rollup-plugin-replace": "^2.0.0",
         "rollup-plugin-sourcemaps": "^0.4.2",
         "rollup-plugin-uglify": "^2.0.1",
-        "ts-node": "^4.0.1",
-        "typescript": "^2.6.2"
+        "ts-node": "^4.0.2",
+        "typescript": "~2.4.2"
     },
     "dependencies": {
         "@angular/common": "^5.1.0",
         "@angular/core": "^5.1.0",
         "@angular/forms": "^5.1.0",
         "@angular/platform-browser": "^5.1.0",
+        "@nestjs/common": "^4.5.1",
+        "@nestjs/core": "^4.5.1",
+        "@nestjs/microservices": "^4.5.1",
+        "@nestjs/testing": "^4.5.1",
+        "@nestjs/websockets": "^4.5.1",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.5.5",
         "zone.js": "0.8.4"
