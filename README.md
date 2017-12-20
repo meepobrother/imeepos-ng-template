@@ -42,3 +42,19 @@ import { 模块 } from {包名}
 "rollup-plugin-includepaths": "0.2.2",
 "rollup-plugin-node-resolve": "^3.0.0"
 ```
+
+- demo演示
+
+```
+yarn demo
+```
+
+- 后台相关
+```ts
+// 启动后台服务
+yarn server
+// 重启后台服务
+yarn reload
+// 清除进程
+yarn delete
+```
