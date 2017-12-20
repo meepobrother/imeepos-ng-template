@@ -11,8 +11,11 @@ let lessFilePool = [];
 let handledLessFileCount = 0;
 
 let tsFileTester = /\.ts$/;
+
 let stylesRegex = /styleUrls *:(\s*\[[^\]]*?\])/g;
 let htmlRegex = /templateUrl\s*:\s*\'(\S*?)\'/g;
+let imageRegex = /url\((\S*?)\)/g;
+
 
 let stringRegex = /(['"])((?:[^\\]\\\1|.)*?)\1/g;
 let lessNumRegex = /style_(\d+)_less/g;
@@ -24,7 +27,7 @@ function getTsFile(path, parse) {
         } else if (fs.statSync(path).isDirectory() && path.indexOf(genDistPath) < 0) {
             // 单是一个文件夹且不是dist文件夹的情况下
             let paths = fs.readdirSync(path);
-            paths.forEach(function(p) {
+            paths.forEach(function (p) {
                 getTsFile(pathUtil.join(path, p), parse);
             })
         }
@@ -36,8 +39,8 @@ function getTsFile(path, parse) {
 function transformStyleUrls(path) {
     let content = fs.readFileSync(path);
     if (stylesRegex.test(content)) {
-        let contentTemp = content.toString().replace(stylesRegex, function(match, urls) {
-            return "styles:" + urls.replace(stringRegex, function(match, quote, url) {
+        let contentTemp = content.toString().replace(stylesRegex, function (match, urls) {
+            return "styles:" + urls.replace(stringRegex, function (match, quote, url) {
                 lessFilePool.push(pathUtil.resolve(pathUtil.dirname(path), url))
                 let result = 'style_' + handledLessFileCount + '_less';
                 handledLessFileCount += 1;
@@ -51,7 +54,7 @@ function transformStyleUrls(path) {
 function transformHtmlUrls(path) {
     let content = fs.readFileSync(path);
     if (htmlRegex.test(content)) {
-        let contentTemp = content.toString().replace(htmlRegex, function(match, url) {
+        let contentTemp = content.toString().replace(htmlRegex, function (match, url) {
             let filePath = pathUtil.resolve(pathUtil.dirname(path), url);
             let content = fs.readFileSync(filePath);
             return 'template: ' + "`" + content + "`";
@@ -77,7 +80,7 @@ function writeBack() {
 function writeBackCss(path) {
     let content = fs.readFileSync(path);
     if (lessNumRegex.test(content)) {
-        let contentTemp = content.toString().replace(lessNumRegex, function(match, index) {
+        let contentTemp = content.toString().replace(lessNumRegex, function (match, index) {
             return '`' + lessFilePool[index] + '`';
         });
         fs.writeFileSync(path, contentTemp);
@@ -87,27 +90,42 @@ function writeBackCss(path) {
 function processLess() {
     let index = 0;
     while (index < lessFilePool.length) {
-        (function(index) {
+        (function (index) {
             // debugger';
             if (lessFilePool[index].indexOf('.less') != -1) {
-                fs.readFile(lessFilePool[index], function(e, data) {
+                fs.readFile(lessFilePool[index], function (e, data) {
                     if (data) {
                         less.render(data.toString(), {
                             filename: lessFilePool[index]
-                        }, function(e, output) {
+                        }, function (e, output) {
                             if (e) {
                                 console.log(e);
                             } else {
-                                lessFilePool[index] = output.css.replace(/\\e/g, function(match, e) {
+                                // 检查图片并转换base64
+                                let file = lessFilePool[index];
+                                if (imageRegex.test(output.css)) {
+                                    let contentTemp = output.css.toString().replace(imageRegex, function (match, fileName) {
+                                        fileName = fileName.replace("'", '');
+                                        fileName = fileName.replace("'", '');
+                                        fileName = fileName.replace('"', '');
+                                        fileName = fileName.replace('"', '');
+                                        let filePath = pathUtil.resolve(pathUtil.dirname(file), fileName);
+                                        let content = fs.readFileSync(filePath);
+                                        let base64 = 'url(data:image/png;base64,' + content.toString("base64") + ')';
+                                        return base64;
+                                    });
+                                    output.css = contentTemp;
+                                }
+                                lessFilePool[index] = output.css.replace(/\\e/g, function (match, e) {
                                     // 对content中的类似'\e630'中的\e进行处理
                                     return '\\\\e';
-                                }).replace(/\\E/g, function(match, e) {
+                                }).replace(/\\E/g, function (match, e) {
                                     // 对content中的类似'\E630'中的\E进行处理
                                     return '\\\\E';
-                                }).replace(/\\20/g, function(match, e) {
+                                }).replace(/\\20/g, function (match, e) {
                                     // 对content中的类似'\20'中的\20进行处理
                                     return '\\\\20';
-                                }).replace(/`/g, function(match, e) {
+                                }).replace(/`/g, function (match, e) {
                                     // 处理css中`符号
                                     return "'";
                                 });
@@ -117,22 +135,39 @@ function processLess() {
                     }
                 });
             }
-
+            // 处理scss
             if (lessFilePool[index].indexOf('.scss') != -1) {
                 scss.render({
                     file: lessFilePool[index]
-                }, function(e, output) {
+                }, function (e, output) {
                     if (e) {
                         console.log(e);
                     } else {
-                        lessFilePool[index] = output.css;
+                        // 检查图片并转换base64
+                        let file = lessFilePool[index];
+                        if (imageRegex.test(output.css)) {
+                            let contentTemp = output.css.toString().replace(imageRegex, function (match, fileName) {
+                                fileName = fileName.replace("'", '');
+                                fileName = fileName.replace("'", '');
+                                fileName = fileName.replace('"', '');
+                                fileName = fileName.replace('"', '');
+                                let filePath = pathUtil.resolve(pathUtil.dirname(file), fileName);
+                                let content = fs.readFileSync(filePath);
+                                let base64 = 'url(data:image/png;base64,' + content.toString("base64") + ')';
+                                return base64;
+                            });
+                            lessFilePool[index] = contentTemp;
+                            doneOne();
+                        } else {
+                            lessFilePool[index] = output.css;
+                            doneOne();
+                        }
                     }
-                    doneOne();
                 });
             }
 
             if (lessFilePool[index].indexOf('.css') != -1) {
-                fs.readFile(lessFilePool[index], function(e, data) {
+                fs.readFile(lessFilePool[index], function (e, data) {
                     if (e) {
                         console.log(e)
                     } else {
