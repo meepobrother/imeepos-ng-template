@@ -1,7 +1,7 @@
 {
-    "name": "imeepos-runnerpro",
+    "name": "meepo-runner",
     "version": "1.0.0",
-    "description": "我的ng包描述",
+    "description": "runner for angular",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
     "es2015": "./esm2015/meepo.js",
@@ -18,15 +18,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/meepobrother/imeepos-ng-template.git"
+        "url": "git+https://github.com/meepobrother/meepo-runner.git"
     },
     "keywords": [],
     "author": "imeepos",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/meepobrother/imeepos-ng-template/issues"
+        "url": "https://github.com/meepobrother/meepo-runner/issues"
     },
-    "homepage": "https://github.com/meepobrother/imeepos-ng-template/README.md",
+    "homepage": "https://github.com/meepobrother/meepo-runner/README.md",
     "devDependencies": {
         "@angular/cli": "^1.6.1",
         "@angular/compiler": "5.2.0-beta.1",
