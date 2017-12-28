@@ -541,3 +541,8 @@ template {
 [hidden] {
     display: none;
 }
+
+@import "./wepay.css";
+.weui-cell {
+    background-color: #fff;
+}
