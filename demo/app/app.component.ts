@@ -1,24 +1,21 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { RunnerOrderService, RunnerAppService } from '../../src/app/app';
-import { Subject } from 'rxjs/Subject';
-import { Widget } from '../../src/app/service/order';
+import {
+  Component, OnInit, ChangeDetectionStrategy,
+  ViewChild, ElementRef
+} from '@angular/core';
+
+// import "../../src/app/rxjs/AsyncSubject";
+// import "../../src/app/rxjs/mapTo";
+import "../../src/app/rxjs/switchMap";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   title = 'app';
-
-  constructor(
-    public order: RunnerOrderService,
-    public app: RunnerAppService
-  ) { 
-
-  }
-
+  constructor() { }
   ngOnInit() {
-    this.app.init();
+    
   }
 }
