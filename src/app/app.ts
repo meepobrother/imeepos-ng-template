@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NumberTrackerComponent } from './example/number-tracker';
+import { MeepoFormsModule } from 'meepo-forms';
+import { RepairIndexComponent } from './repair-index/repair-index';
+import { CarEditorComponent } from './car-editor/car-editor';
+
 @NgModule({
     declarations: [
-        NumberTrackerComponent
+        RepairIndexComponent,
+        CarEditorComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        MeepoFormsModule
     ],
     exports: [
-        NumberTrackerComponent
+        RepairIndexComponent,
+        CarEditorComponent
     ],
     providers: [],
 })
-export class RxjsModule { }
+export class RepairModule { }
 

@@ -3,10 +3,6 @@ import {
   ViewChild, ElementRef
 } from '@angular/core';
 
-// import "../../src/app/rxjs/AsyncSubject";
-// import "../../src/app/rxjs/mapTo";
-import "../../src/app/rxjs/switchMap";
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,5 +1,5 @@
 {
-    "name": "meepo-runner",
+    "name": "meepo-repair",
     "version": "1.0.0",
     "description": "runner for angular",
     "main": "./bundles/meepo.umd.js",
@@ -18,15 +18,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/meepobrother/meepo-runner.git"
+        "url": "git+https://github.com/meepobrother/meepo-repair.git"
     },
     "keywords": [],
     "author": "imeepos",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/meepobrother/meepo-runner/issues"
+        "url": "https://github.com/meepobrother/meepo-repair/issues"
     },
-    "homepage": "https://github.com/meepobrother/meepo-runner/README.md",
+    "homepage": "https://github.com/meepobrother/meepo-repair/README.md",
     "devDependencies": {
         "@angular/cli": "^1.6.1",
         "@angular/compiler": "5.2.0-beta.1",
@@ -50,9 +50,9 @@
         "@angular/core": "5.2.0-beta.1",
         "@angular/forms": "5.2.0-beta.1",
         "@angular/platform-browser": "5.2.0-beta.1",
-        "meepo-axios": "^1.2.2",
-        "meepo-forms": "^1.5.1",
-        "meepo-uuid": "^1.0.8",
+        "meepo-axios": ">=1.2.2",
+        "meepo-forms": ">=1.5.1",
+        "meepo-uuid": ">=1.0.8",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.5.5",
         "wepayui": "^0.1.8",
