@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-@Component(
+
+@Component({
     selector: 'repair-index',
     templateUrl: './repair-index.html',
     styleUrls: ['./repair-index.scss'],
