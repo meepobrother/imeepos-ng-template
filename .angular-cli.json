@@ -19,10 +19,7 @@
             "testTsconfig": "tsconfig.spec.json",
             "prefix": "app",
             "styles": [
-                "styles.scss",
-                "../node_modules/meepo-forms/app.css",
-                "../node_modules/meepo-uploader/app.css",
-                "../node_modules/meepo-xscroll/app.css"          
+                "styles.scss"
             ],
             "scripts": [],
             "environmentSource": "environments/environment.ts",
