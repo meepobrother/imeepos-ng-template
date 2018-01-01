@@ -21,7 +21,8 @@
             "styles": [
                 "styles.scss",
                 "../node_modules/meepo-forms/app.css",
-                "../node_modules/meepo-uploader/app.css"                
+                "../node_modules/meepo-uploader/app.css",
+                "../node_modules/meepo-xscroll/app.css"          
             ],
             "scripts": [],
             "environmentSource": "environments/environment.ts",

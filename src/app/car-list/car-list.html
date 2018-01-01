@@ -1,0 +1,28 @@
+<div class="car-tabs">
+    <div class="car-item" [class.on]="my" (click)="myCar()">
+        我的汽车
+    </div>
+    <div class="car-item" [class.on]="!my" (click)="myCreate()">
+        我录入的
+    </div>
+</div>
+<xscroll [full]="true">
+    <div class="car-list">
+        <div class="car-list-item" (click)="editor(item)" *ngFor="let item of items">
+            <div class="car-list-item_left">
+                <p>{{item.carNum}}</p>
+                <p>{{item.jarNum}}</p>
+                <p>{{item.licheng}}公里</p>
+                <p>{{item.title}}</p>
+            </div>
+            <div class="car-list-item_body">
+                <p>{{item.realname}}</p>
+                <p>{{item.mobile}}</p>
+                <p>{{item.desc}}</p>
+            </div>
+        </div>
+        <div class="car-list-empty" *ngIf="items.length == 0">
+            没有相关数据
+        </div>
+    </div>
+</xscroll>

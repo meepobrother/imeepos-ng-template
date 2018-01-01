@@ -1,0 +1,49 @@
+.car-tabs {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    position: relative;
+    .car-item {
+        flex: 1;
+        line-height: 30px;
+        height: 30px;
+        text-align: center;
+        &.on {
+            border-bottom: 1px solid orangered;
+        }
+    }
+}
+
+xscroll {
+    position: relative;
+    display: block;
+}
+
+.car-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    min-height: 300px;
+    .car-list-item {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        background-color: #fff;
+        margin-top: 5px;
+    }
+    .car-list-item_left {
+        margin-right: 10px;
+    }
+    .car-list-item_body {
+        flex: 1;
+    }
+}
+
+.car-list-empty {
+    height: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

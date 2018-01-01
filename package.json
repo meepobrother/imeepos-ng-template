@@ -52,6 +52,7 @@
         "@angular/platform-browser": "5.2.0-beta.1",
         "meepo-axios": ">=1.2.2",
         "meepo-forms": ">=1.5.1",
+        "meepo-uploader": ">=1.6.0",
         "meepo-uuid": ">=1.0.8",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.5.5",

@@ -546,3 +546,11 @@ template {
 .weui-cell {
     background-color: #fff;
 }
+
+body,
+html,
+app-root {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
