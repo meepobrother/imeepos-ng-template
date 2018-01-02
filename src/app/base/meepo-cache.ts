@@ -5,6 +5,8 @@ import {
 import { Meepo, BaseInter } from './meepo';
 import { Subject } from "rxjs/Subject";
 import { StoreService } from 'meepo-store';
+import { Title } from '@angular/platform-browser';
+
 export class MeepoCache extends Meepo implements DetailInter, BaseInter {
     key: string;
     data: any = {};
@@ -14,15 +16,20 @@ export class MeepoCache extends Meepo implements DetailInter, BaseInter {
 
     store: StoreService;
     cd: ChangeDetectorRef;
+    title: Title;
     constructor(
         store: StoreService,
-        cd: ChangeDetectorRef
+        cd: ChangeDetectorRef,
+        title: Title
     ) {
         super();
         this.store = store;
         this.cd = cd;
         let observer = this.onUpdate.subscribe(res => {
             this.data = res;
+            if(this.data['title']){
+                this.title.setTitle(this.data['title']);
+            }
             this.cd.markForCheck();
         });
         this.observers.push(observer);
@@ -31,6 +38,9 @@ export class MeepoCache extends Meepo implements DetailInter, BaseInter {
         let data = this.store.get(`${this.key}`, this.data);
         if (data) {
             this.data = data;
+            if(this.data['title']){
+                this.title.setTitle(this.data['title']);
+            }
         }
         this.meepoInit();
     }
