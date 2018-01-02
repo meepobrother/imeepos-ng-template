@@ -9,6 +9,7 @@ export class MeepoHistory extends Meepo {
     // 历史数据
     @Input() page: number = 1;
     @Input() psize: number = 10;
+    @Input() max: number = 50;
     data: any[] = [];
 
     constructor(
