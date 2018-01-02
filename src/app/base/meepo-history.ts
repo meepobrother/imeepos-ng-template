@@ -30,6 +30,7 @@ export class MeepoHistory extends Meepo {
 
     addItem(e: any) {
         this.data.unshift(e);
+        this.data = this.data.splice(0, this.max);
         this.store.set(this.key, this.data);
         this.onAddItem(e);
     }
