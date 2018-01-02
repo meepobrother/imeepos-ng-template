@@ -6,15 +6,9 @@ import { Meepo, BaseInter } from './meepo';
 import { Subject } from "rxjs/Subject";
 import { StoreService } from 'meepo-store';
 export class MeepoCache extends Meepo implements DetailInter, BaseInter {
-    _key: string;
-    @Input()
-    set key(val: string) {
-        this._key = `meepo.cache.${val}`;
-    }
-    get key() {
-        return this._key;
-    }
+    key: string;
     data: any = {};
+
     onUpdate: Subject<any> = new Subject();
     observers: any[] = [];
 
