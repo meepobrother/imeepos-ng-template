@@ -1,6 +1,6 @@
 {
     "name": "meepo-base",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "runner for angular",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",

@@ -28,7 +28,7 @@ export class MeepoCache extends Meepo implements DetailInter, BaseInter {
         this.observers.push(observer);
     }
     ngOnInit() {
-        let data = this.store.get(`${this.key}}`, this.data);
+        let data = this.store.get(`${this.key}`, this.data);
         if (data) {
             this.data = data;
         }
@@ -37,7 +37,7 @@ export class MeepoCache extends Meepo implements DetailInter, BaseInter {
     meepoInit() { }
     updateCache(data: any) {
         if (data === this.data) { } else {
-            this.store.set(`${this.key}}`, data);
+            this.store.set(`${this.key}`, data);
             this.onUpdate.next(data);
         }
     }
