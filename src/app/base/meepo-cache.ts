@@ -43,6 +43,7 @@ export class MeepoCache extends Meepo implements DetailInter, BaseInter {
             }
         }
         this.meepoInit();
+        this._calcDim();
     }
     meepoInit() { }
     updateCache(data: any) {

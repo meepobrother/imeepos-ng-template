@@ -24,6 +24,7 @@ export class MeepoHistory extends Meepo {
     ngOnInit() {
         this.data = this.store.getList(this.key, this.page, this.psize);
         this.meepoInit();
+        this._calcDim();
     }
 
     meepoInit() { }
