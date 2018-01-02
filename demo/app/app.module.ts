@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from 'meepo-store';
 import { QrcodeModule } from '../../src/app/app';
 
+
 @NgModule({
   declarations: [
     AppComponent
