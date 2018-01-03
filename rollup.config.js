@@ -256,7 +256,7 @@ switch (target) {
 
 export default {
     exports: 'named',
-    name: 'meepo-qrcode',
+    name: 'meepo-event',
     plugins,
     external: Object.keys(globals),
     globals,
