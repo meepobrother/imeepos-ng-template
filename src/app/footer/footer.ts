@@ -48,6 +48,11 @@ export class FooterComponent extends MeepoCache {
 
     meepoInit() {
         if (this.data && this.util.isArray(this.data) && this.data.length > 0) {
+            this.data.map(res => {
+                if (res.active === 'on') {
+                    this._onItem(res);
+                }
+            });
         } else {
             this.axios.get(this.cfg.url).subscribe((res: any) => {
                 let data: FooterItemInter[] = res.info;
@@ -65,7 +70,11 @@ export class FooterComponent extends MeepoCache {
         item.active = 'on';
         this.updateCache(this.data);
         if (item.link && this.router) {
-            this.router.navigate(item.link, { queryParams: item.params });
+            if (this.util.isArray(item.link)) {
+                this.router.navigate(item.link, { queryParams: item.params });
+            } else {
+                this.router.navigate([item.link], { queryParams: item.params });
+            }
         }
     }
 
