@@ -136,9 +136,27 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/platform-webworker-dynamic@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@angular/platform-webworker-dynamic/-/platform-webworker-dynamic-5.1.2.tgz#8dcb22987301b4e4e4f1872592fb3e64a0197002"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/platform-webworker@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@angular/platform-webworker/-/platform-webworker-5.1.2.tgz#ed871874dcc65ba7d9384bb76b658ae4c9e52a70"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/router@>=5.1.2":
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.1.2.tgz#1da8845478ca340e9c4b3d9da1d1a8ee796fda18"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/service-worker@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-5.1.2.tgz#e99be559f192cbb120b104d27316e67bcd203599"
   dependencies:
     tslib "^1.7.1"
 
@@ -1498,6 +1516,14 @@ enhanced-resolve@^3.1.0, enhanced-resolve@^3.4.0:
     memory-fs "^0.4.0"
     object-assign "^4.0.1"
     tapable "^0.2.7"
+
+enhanced-resolve@^4.0.0-beta.2:
+  version "4.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-4.0.0-beta.2.tgz#a13a9da2340712c4f3dacf27e26717e2eae69c24"
+  dependencies:
+    graceful-fs "^4.1.2"
+    memory-fs "^0.4.0"
+    tapable "^1.0.0-beta.4"
 
 entities@~1.1.1:
   version "1.1.1"
@@ -3013,9 +3039,23 @@ meepo-core@>=3.1.3, meepo-core@>=3.2.5, meepo-core@>=3.2.7:
     rxjs "^5.5.5"
     zone.js "0.8.4"
 
-meepo-event@>=1.1.0, meepo-event@>=1.1.2:
+meepo-event@>=1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/meepo-event/-/meepo-event-1.1.2.tgz#0620df56a2a15562af4130fca89818097542657d"
+  dependencies:
+    "@angular/common" ">=5.1.2"
+    "@angular/core" ">=5.1.2"
+    "@angular/forms" ">=5.1.2"
+    "@angular/platform-browser" ">=5.1.2"
+    "@angular/router" ">=5.1.2"
+    meepo-store ">=1.0.4"
+    reflect-metadata "^0.1.10"
+    rxjs "^5.5.5"
+    zone.js "0.8.4"
+
+meepo-event@>=1.1.2:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/meepo-event/-/meepo-event-1.1.4.tgz#c5d975e80813e1db4499071c1e090b8020bc41fc"
   dependencies:
     "@angular/common" ">=5.1.2"
     "@angular/core" ">=5.1.2"
@@ -5024,6 +5064,10 @@ symbol-observable@1.0.1:
 tapable@^0.2.7:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.8.tgz#99372a5c999bf2df160afc0d74bed4f47948cd22"
+
+tapable@^1.0.0-beta.4:
+  version "1.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.0.0-beta.5.tgz#9bc844b856487e03345b7d3361288aefd97f8303"
 
 tar-pack@^3.4.0:
   version "3.4.1"

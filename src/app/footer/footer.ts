@@ -54,6 +54,7 @@ export class FooterComponent extends MeepoCache {
                 this.updateCache(data);
             });
         }
+        this.cd.markForCheck();
     }
 
     _onItem(item: any) {
