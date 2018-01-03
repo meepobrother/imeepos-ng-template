@@ -256,7 +256,7 @@ switch (target) {
 
 export default {
     exports: 'named',
-    name: 'meepo-event',
+    name: 'meepo-permissions',
     plugins,
     external: Object.keys(globals),
     globals,

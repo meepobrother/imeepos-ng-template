@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { EventsModule } from '../../src/app/app';
+import { PermissionsModule } from '../../src/app/app';
 
 
 @NgModule({
@@ -10,7 +10,13 @@ import { EventsModule } from '../../src/app/app';
   ],
   imports: [
     BrowserModule,
-    EventsModule,
+    PermissionsModule.forRoot({
+      title: '游客',
+      code: 'free',
+      items: [
+        'free1'
+      ]
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

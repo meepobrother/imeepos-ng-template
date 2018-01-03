@@ -1,5 +1,5 @@
 {
-    "name": "meepo-event",
+    "name": "meepo-permissions",
     "version": "1.0.7",
     "description": "runner for angular",
     "main": "./bundles/meepo.umd.js",
@@ -18,15 +18,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/meepobrother/meepo-event.git"
+        "url": "git+https://github.com/meepobrother/meepo-permissions.git"
     },
     "keywords": [],
     "author": "imeepos",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/meepobrother/meepo-event/issues"
+        "url": "https://github.com/meepobrother/meepo-permissions/issues"
     },
-    "homepage": "https://github.com/meepobrother/meepo-event/README.md",
+    "homepage": "https://github.com/meepobrother/meepo-permissions/README.md",
     "devDependencies": {
         "@angular/cli": "^1.6.1",
         "@angular/compiler": "5.2.0-beta.1",
@@ -50,6 +50,8 @@
         "@angular/forms": "5.2.0-beta.1",
         "@angular/platform-browser": "5.2.0-beta.1",
         "@angular/router": "^5.1.2",
+        "meepo-core": ">=3.2.5",
+        "meepo-event": ">=1.1.0",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.5.5",
         "zone.js": "0.8.4"
