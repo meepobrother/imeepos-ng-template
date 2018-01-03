@@ -1,0 +1,41 @@
+.footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: #fff;
+    box-shadow: 4px -4px 6px #e4e4e4;
+    .footer-container {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        .footer-item {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5px 0px;
+            cursor: pointer;
+            ion {
+                margin-bottom: 5px;
+                font-size: 20px;
+            }
+            &.on {
+                color: red;
+            }
+        }
+        .footer-item+.footer-item {
+            &:before {
+                content: " ";
+                position: absolute;
+                top: 10px;
+                bottom: 10px;
+                width: 1px;
+                color: #ccc;
+                background-color: #ccc;
+                transform: scaleX(.5);
+            }
+        }
+    }
+}

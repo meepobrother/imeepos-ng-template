@@ -26,7 +26,7 @@
         "annotateForClosureCompiler": true,
         "strictMetadataEmit": true,
         "flatModuleOutFile": "index.js",
-        "flatModuleId": "meepo-permissions",
+        "flatModuleId": "meepo-footer",
         "skipTemplateCodegen": true
     },
     "exclude": [

@@ -1,36 +1,44 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CheckDirective } from './directive/check.directive';
-import { RolesService, ROLE_DEFAULT, RoleInter } from './roles';
 import { EventModule } from 'meepo-event';
 import { MeepoCoreServiceModule } from 'meepo-core';
+import { PermissionsModule } from 'meepo-permissions';
+import { IconsModule } from 'meepo-icons';
+import { CommonModule } from '@angular/common';
+import { StoreModule } from 'meepo-store';
+import { FooterComponent, FOOTER_CONFIG, FooterConfigDefault } from './footer/footer';
+import { AxiosModule } from 'meepo-axios';
 
 @NgModule({
     imports: [
         EventModule.forRoot(),
-        MeepoCoreServiceModule
+        PermissionsModule.forRoot({
+            items: ['admin']
+        }),
+        IconsModule,
+        CommonModule,
+        StoreModule,
+        AxiosModule
     ],
     exports: [
-        CheckDirective
+        FooterComponent
     ],
     declarations: [
-        CheckDirective
+        FooterComponent
     ],
     providers: [
-        RolesService
     ],
 })
-export class PermissionsModule {
-    public static forRoot(cfg: RoleInter): ModuleWithProviders {
+export class FooterModule {
+    public static forRoot(cfg: FooterConfigDefault): ModuleWithProviders {
         return {
-            ngModule: PermissionsModule,
+            ngModule: FooterModule,
             providers: [
                 {
-                    provide: ROLE_DEFAULT,
+                    provide: FOOTER_CONFIG,
                     useValue: cfg
                 }
             ]
         }
     }
 }
-export { RolesService, ROLE_DEFAULT, RoleInter } from './roles';
 

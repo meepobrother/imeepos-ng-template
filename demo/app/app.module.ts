@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { PermissionsModule } from '../../src/app/app';
+import { FooterModule } from '../../src/app/app';
 
 
 @NgModule({
@@ -10,13 +10,9 @@ import { PermissionsModule } from '../../src/app/app';
   ],
   imports: [
     BrowserModule,
-    PermissionsModule.forRoot({
-      title: '游客',
-      code: 'free',
-      items: [
-        'free1'
-      ]
-    }),
+    FooterModule.forRoot({
+      url: './assets/footer.json'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

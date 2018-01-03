@@ -1,0 +1,10 @@
+{
+    "code": "1",
+    "info": [{
+        "title": "首页",
+        "icon": "home",
+        "role": "all",
+        "active": "on"
+    }],
+    "msg": "success"
+}

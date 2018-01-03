@@ -3,7 +3,7 @@ import {
   ViewChild, ElementRef, ChangeDetectorRef
 } from '@angular/core';
 import { EventService } from 'meepo-event';
-import { } from '../../src/app/app';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +13,11 @@ import { } from '../../src/app/app';
 export class AppComponent {
   constructor(
     public event: EventService
-  ) { }
+  ) {
+    let version = new Date().getTime();
+    this.event.checkVersion(version);
+  }
+
   test() {
     this.event.publish('role.change', {
       title: '管理员',
