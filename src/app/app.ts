@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-
+import { EventService } from './events';
 @NgModule({
     imports: [
     ],
     exports: [],
     declarations: [],
-    providers: [],
+    providers: [
+        EventService
+    ],
 })
-export class QrcodeModule { }
+export class EventsModule { }
 

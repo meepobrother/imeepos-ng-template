@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { StoreModule } from 'meepo-store';
-import { QrcodeModule } from '../../src/app/app';
+import { EventsModule } from '../../src/app/app';
 
 
 @NgModule({
@@ -11,8 +10,7 @@ import { QrcodeModule } from '../../src/app/app';
   ],
   imports: [
     BrowserModule,
-    StoreModule,
-    QrcodeModule
+    EventsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
