@@ -554,3 +554,11 @@ app-root {
     height: 100%;
     display: block;
 }
+
+::-webkit-scrollbar {
+    /* 1 */
+    width: 0;
+    height: 0;
+    background: none;
+    border: none;
+}
