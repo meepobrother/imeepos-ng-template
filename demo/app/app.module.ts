@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FooterModule } from '../../src/app/app';
+import { SwiperModule } from '../../src/app/app';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import { FooterModule } from '../../src/app/app';
   ],
   imports: [
     BrowserModule,
-    FooterModule
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

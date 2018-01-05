@@ -1,5 +1,5 @@
 {
-    "name": "meepo-footer",
+    "name": "meepo-swiper",
     "version": "1.1.0",
     "description": "runner for angular",
     "main": "./bundles/meepo.umd.js",
@@ -18,15 +18,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/meepobrother/meepo-footer.git"
+        "url": "git+https://github.com/meepobrother/meepo-swiper.git"
     },
     "keywords": [],
     "author": "imeepos",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/meepobrother/meepo-footer/issues"
+        "url": "https://github.com/meepobrother/meepo-swiper/issues"
     },
-    "homepage": "https://github.com/meepobrother/meepo-footer/README.md",
+    "homepage": "https://github.com/meepobrother/meepo-swiper/README.md",
     "devDependencies": {
         "@angular/cli": ">=1.6.1",
         "@angular/compiler": ">=5.1.2",
