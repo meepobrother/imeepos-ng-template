@@ -1,0 +1,41 @@
+article-thumb-list {
+    padding: 0 10px;
+    position: relative;
+    margin-bottom: 0;
+    background-color: #fff;
+    overflow: hidden;
+    display: block;
+    .feed-two-line {
+        display: flex;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        -webkit-line-clamp: 2;
+    }
+    .clearfix:after {
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: ".";
+    }
+    .img-wrap {
+        margin-top: 10px;
+        clear: both;
+        display: block;
+        display: flex;
+        flex-direction: row;
+        background: #fff;
+        .feed-img {
+            overflow: hidden;
+            position: relative;
+            margin-right: 5px;
+            img {
+                border: none;
+                vertical-align: middle;
+                width: 100%;
+            }
+        }
+    }
+}
