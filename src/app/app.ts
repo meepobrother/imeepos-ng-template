@@ -6,10 +6,8 @@ import { CommonModule } from '@angular/common';
         CommonModule,
     ],
     exports: [
-        FooterComponent
     ],
     declarations: [
-        FooterComponent
     ],
     providers: [
     ],
