@@ -1,0 +1,16 @@
+.header-container {
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #ffff;
+    box-shadow: 1px 1px 1px #ccc;
+    padding: 0 10px;
+    .header-center {
+        flex: 1;
+        text-align: center;
+    }
+    ion {
+        font-size: 30px;
+    }
+}
