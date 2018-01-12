@@ -264,7 +264,7 @@ switch (target) {
 
 export default {
     exports: 'named',
-    name: 'meepo-header',
+    name: 'imeepos-core',
     plugins,
     external: Object.keys(globals),
     globals,

@@ -20,9 +20,7 @@
             "testTsconfig": "tsconfig.spec.json",
             "prefix": "app",
             "styles": [
-                "styles.scss",
-                "../node_modules/meepo-icons/app.css",
-                "../node_modules/meepo-footer/app.css"
+                "styles.scss"
             ],
             "scripts": [],
             "environmentSource": "environments/environment.ts",
