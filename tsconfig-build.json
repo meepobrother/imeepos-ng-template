@@ -26,7 +26,7 @@
         "annotateForClosureCompiler": true,
         "strictMetadataEmit": true,
         "flatModuleOutFile": "index.js",
-        "flatModuleId": "imeepos-core",
+        "flatModuleId": "meepo-logger",
         "skipTemplateCodegen": true
     },
     "exclude": [
